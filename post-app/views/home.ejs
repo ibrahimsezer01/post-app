@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Blogs</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <%- include('./partials/header') %>
+    <div class="container mt-4">
+        <h1>My Blog</h1>
+        <div>
+            <!-- Display posts dynamically -->
+            <% posts.forEach(post=> { %>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h2 class="card-title"><a href="<%= post.id %>" style="color: inherit;"><%= post.title %></a></h2>
+                    <p class="card-text"><%= post.content %></p>
+                    <!-- Edit and Delete links -->
+                    <a href="/edit/<%= post.id %>" class="btn btn-primary mr-2">Edit</a>
+                    <a href="/delete/<%= post.id %>" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

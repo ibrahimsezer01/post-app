@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Blog - Details</title>
+    <style>
+        /* Özel CSS stilleri */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+        }
+        .card {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include('./partials/header') %>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-body text-center">
+                <img src="public/post_images/<%= post.image %>" class="img-fluid" alt="Post Image" style="border-radius: 0;" width="200px"/>
+                <h1 class="card-title"><%= post.title %></h1>
+                <p class="card-text"><%= post.content %></p>
+                <!-- Edit and Delete links -->
+                <a href="/edit/<%= post.id %>" class="btn btn-primary mr-2">Edit</a>
+                <a href="/delete/<%= post.id %>" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
